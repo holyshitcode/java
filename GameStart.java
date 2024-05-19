@@ -1,4 +1,4 @@
-package game_chr;
+package game;
 import java.util.Scanner;
 
 public class GameStart {
@@ -6,8 +6,9 @@ public class GameStart {
     	Character character = null;
     	Scanner scanner = new Scanner(System.in);
     	String flag = " ";
-    	String skillType;
-    	String jobType;
+    	String enterFlag = "";
+    	String skillType= " ";
+    	String jobType = " ";
     	System.out.println("Enter your Name:");
     	String name = scanner.nextLine();
     	System.out.println("Enter your Stat among those one [Str,Dex,Int,Luk]:");
@@ -30,14 +31,42 @@ public class GameStart {
         	jobType = "thief";
         }
         
+        World world = new World(name,stats,jobType);
+        System.out.println("Enter y/n to go shop:");
+        enterFlag = scanner.nextLine();
+        
+        if (enterFlag.equals("y")) {
+        	world.showShop();
+        }
+        else {
+        	System.out.println("Nothing");
+        }
+        
+        System.out.println("Enter y/n to show your region:");
+        enterFlag = scanner.nextLine();
+        
+        if (enterFlag.equals("y")) {
+        	world.regionShow();
+        }
+        else {
+        	System.out.println("Nothing");
+        }
+        
         while (!flag.equals("quit")) {
         	if(character!=null) {
-        		System.out.println("Enter the skill you want [q,w,e,r]");
+        		System.out.println("Enter the skill you want [q,w,e,r] or shop , region");
         		skillType = scanner.nextLine();
+        		if (skillType.equals("shop")) {
+        			world.showShop();
+        		}
+        		else if (skillType.equals("region")) {
+        			world.regionShow();
+        		}
+        		else if (skillType.equals("q") || skillType.equals("w") || skillType.equals("e") || skillType.equals("r")) {
         		character.useSkill(skillType);
         		System.out.println("Enter quit to quit");
         		flag = scanner.nextLine();
-        	
+        		}
         	}       
         else {
         	System.out.println("Rename your Job!");

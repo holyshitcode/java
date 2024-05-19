@@ -1,4 +1,4 @@
-package game_chr;
+package game;
 
 public class Character {
 	
@@ -6,13 +6,13 @@ public class Character {
 	String stats;
 	String weapons;
 	int money;
-	
+	String bags;
 	public Character(String name, String stats) {
 		this.name = name;
 		this.stats = stats;
 		this.money = 4000;
-		this.showInfo();
-		this.getJob();
+		
+		
 			
 	}
 
@@ -46,17 +46,20 @@ public class Character {
 		if (word.equals("q")) {
 			this.q();
 		}
-		if (word.equals("w")) {
+		else if (word.equals("w")) {
 			this.w();
 		}
-		if (word.equals("e")) {
+		else if (word.equals("e")) {
 			this.e();
 		}
-		if (word.equals("r")) {
+		else if (word.equals("r")) {
 			this.r();
 		}
-		
+		else {
+			this.s();
+		}		
 	}
+	
 	public void q() {
 		System.out.println("This is skill 'q'");
 	}
@@ -73,5 +76,4 @@ public class Character {
 		System.out.println("Hidden skill for someone");
 	}
 }
-
 

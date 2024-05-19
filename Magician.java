@@ -1,4 +1,4 @@
-package game_chr;
+package game;
 
 public class Magician extends Character {
 	String specialty;

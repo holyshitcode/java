@@ -1,4 +1,4 @@
-package game_chr;
+package game;
 
 public class Warrior extends Character {
 	String specialty;

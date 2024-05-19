@@ -1,4 +1,4 @@
-package game_chr;
+package game;
 
 public class Thief extends Character {
 	String specialty;
@@ -29,6 +29,7 @@ public class Thief extends Character {
 	}
 	public void s() {
 		System.out.println("Steal your money haha!");
+		this.money = this.money + 1000;
 	}
 	
 }
